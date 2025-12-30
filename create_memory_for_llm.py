@@ -1,11 +1,11 @@
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
 ## Uncomment the following files if you're not using pipenv as your virtual environment manager
-#from dotenv import load_dotenv, find_dotenv
-#load_dotenv(find_dotenv())
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Step 1: Load raw PDF(s)
@@ -19,7 +19,8 @@ def load_pdf_files(data):
     return documents
 
 documents=load_pdf_files(data=DATA_PATH)
-#print("Lenght of PDF pages: ", len(documents))
+#print("Length of PDF pages: ", len(documents))
+
 
 # Step 2: Create Chunks
 def create_chunks(extracted_data):
